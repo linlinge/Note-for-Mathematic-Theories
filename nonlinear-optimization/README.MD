@@ -12,5 +12,5 @@ Gauss-Newton Method| 目标函数的Jacobian 矩阵近似H矩阵，提高算法�
 It is often used to solve nonlinear least square problem.
 Main Application
 * Curve fitting
-* 
+
 
