@@ -1,13 +1,13 @@
 Distance
 * Euclidean Distance
-* Manhattan Distance
-* Minkowski Distance
-* Chebyshev Distance
-* Hausdorff Distance
-* Standardized Euclidean Distance
-* Mahalanobis Distance
-* Hamming Distance
-* Algebraic Distance
+* Manhattan Distance (未使用过)
+* Minkowski Distance (未使用过)
+* Chebyshev Distance (未使用过)
+* Hausdorff Distance 
+* Standardized Euclidean Distance (未使用过)
+* Mahalanobis Distance (未使用过)
+* Hamming Distance (未使用过)
+* Algebraic Distance 
 
 
 |Type | Occasion|
