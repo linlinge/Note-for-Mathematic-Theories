@@ -12,5 +12,5 @@ Distance
 
 |Type | Occasion|
 |-|-|
-|Algebraic Distance | Distance of points and surface |
-
+| Algebraic Distance | Distance of points and surface |
+| Hausdorff Distance | Distance of two point sets	|
