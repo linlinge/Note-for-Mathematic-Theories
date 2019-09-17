@@ -9,9 +9,8 @@ Distance
 * Hamming Distance
 * Algebraic Distance
 
-<centre>
+
 |Type | Occasion|
 |-|-|
 |Algebraic Distance | Distance of points and surface |
 
-<\centre>
