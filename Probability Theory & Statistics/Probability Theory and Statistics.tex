@@ -74,9 +74,8 @@
 \setlength\topmargin{(\paperheight-\textheight -\headheight-\headsep-\footskip)/2 - 1.5in}
 
 
-\title{Note of Probability Theory and Statistics}
+\title{Note for Probability Theory and Statistics}
 \author{Linlin Ge}
-\date{}
 \CTEXoptions[today=old]
 \begin{document}
 \maketitle
@@ -97,11 +96,16 @@ $\bm{x}$ & A real k-dimensional column vector.\\
 \section{Distance}
 \subsection{Distance of Random Variables (Same Distribution, Covariance Matrix=$\sum$)}
 \paragraph{Mahalanobis Distance} \mbox{}
-\par Distance of vector $\bm{x}$ and set:
+\begin{itemize}
+\item[(1)] Distance of vector $\bm{x}$ and set:
 $$D_M(\bm{x})=\sqrt[]{(\bm{x}-\bm{\mu})^{T}\bm{C}^{-1}(\bm{x}-\bm{\mu})}$$
+If $\bm{x}$ is a k-dimensional Gaussian random vector with mean vector $\bm{\mu}$ and rank $k$ covariance matrix $\bm{C}$, then the Mahalanobis distance $D^2_M(\bm{x})$ follows a $\chi^2$-distribution with $d$ degrees of freedom.
 
-\par Distance of two vectors $\bm{x}$ and $\bm{y}$:
+\item[(2)] Distance of two vectors $\bm{x}$ and $\bm{y}$:
 $$d(\bm{x},\bm{y})=\sqrt[]{(\bm{x}-\bm{\mu})^{T}\bm{C}^{-1}(\bm{x}-\bm{\mu})}$$
+
+\end{itemize}
+
 
 \begin{thebibliography}{1}
 
