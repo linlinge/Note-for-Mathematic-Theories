@@ -11,7 +11,6 @@
 \newcommand{\upcite}[1]{\textsuperscript{\textsuperscript{\cite{#1}}}}
 
 
-
 \usepackage{bbding}
 \usepackage{pifont}
 \usepackage{wasysym}
@@ -75,87 +74,34 @@
 \setlength\topmargin{(\paperheight-\textheight -\headheight-\headsep-\footskip)/2 - 1.5in}
 
 
-\title{Summary for Nonlinear Optimization}
+\title{Note of Probability Theory and Statistics}
 \author{Linlin Ge}
 \date{}
 \CTEXoptions[today=old]
 \begin{document}
 \maketitle
 
-\section{Introduction}
-
-
-
-
-
+\section{Distribution}
+\paragraph{Multivariate normal distribution} \mbox{}
+$$  f_{\bm{x}}(x_1,\cdots,x_k)=\frac{ e^{-\frac{\displaystyle (\bm{x} -\bm{\mu})^T \bm{C}^{-1}(\bm{x}-\bm{\mu})}{2}}}{\sqrt[]{(2 \pi)^k \vert \bm{C} \vert}}$$
+Where, 
 \begin{table}[H]
-\centering
-\caption{Optimization Method}
-\label{table1}
-\begin{tabular}{|c|c|c|}
-\hline  % 表格的横线
-\multicolumn{1}{|c|}{方法分类}& Solved Problems  & Methods\\
-\hline  % 表格的横线
-\multirow{4}{*}{Local Deterministic}
- &  &gradient descent and derivative   \\
-\cline{2-3}  % 表格的横线
-~& & Newton, Gaussian-newton, LM \\
-\cline{2-3}  % 表格的横线
-~& & Quasi-Newton \\
-\cline{2-3}  % 表格的横线
-~& & Expectation Maximization \\
-
-
-\hline  % 表格的横线
-\multirow{4}{*}{Global Deterministic}
- &Integer Programming Problem  &Branch and Bound \& Tree Search   \\
-\cline{2-3}  % 表格的横线
-~& & Graduated Assignment \\
-\cline{2-3}  % 表格的横线
-~& & Mean Field Annealing \\
-\cline{2-3}  % 表格的横线
-~& & Game Theoretical Framework \\
-\cline{2-3}  % 表格的横线
-~& & Spectral Method \\
-
-\hline  % 表格的横线
-\multirow{5}{*}{Stochastic}
- & & Genetic Algorithm \& Simulated Annealing   \\
-\cline{2-3}  % 表格的横线
-~& & Particle Filtering \\
-\cline{2-3}  % 表格的横线
-~& & Hough Transform \\
-\cline{2-3}  % 表格的横线
-~& &RANSAC \\
-\cline{2-3}  % 表格的横线
-~& &Belief Propagation \\
-
-\hline  % 表格的横线
-\multirow{3}{*}{Constrained Search}
- & & Prune and Search   \\
-\cline{2-3}  % 表格的横线
-~& & Geometric Hashing \\
-\cline{2-3}  % 表格的横线
-~& & Embedding Techniques \\
-
-\hline
+\begin{tabular}{cl}
+$\bm{C}$ & The symmetric covariance matrix. \\
+$\bm{x}$ & A real k-dimensional column vector.\\
 \end{tabular}
 \end{table}
 
 
 
+\section{Distance}
+\subsection{Distance of Random Variables (Same Distribution, Covariance Matrix=$\sum$)}
+\paragraph{Mahalanobis Distance} \mbox{}
+\par Distance of vector $\bm{x}$ and set:
+$$D_M(\bm{x})=\sqrt[]{(\bm{x}-\bm{\mu})^{T}\bm{C}^{-1}(\bm{x}-\bm{\mu})}$$
 
-
-$$L=
-\left[
-\begin{array}{cccc}
-2 & -1 & -1 & 0 \\
--1 & 3 & -1 & -1 \\
--1 & -1 & 3 & -1 \\
-0 & -1 & -1 & 2
-\end{array}
-\right]
-$$
+\par Distance of two vectors $\bm{x}$ and $\bm{y}$:
+$$d(\bm{x},\bm{y})=\sqrt[]{(\bm{x}-\bm{\mu})^{T}\bm{C}^{-1}(\bm{x}-\bm{\mu})}$$
 
 \begin{thebibliography}{1}
 

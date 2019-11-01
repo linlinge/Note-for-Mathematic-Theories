@@ -17,7 +17,7 @@
 \usepackage{wasysym}
 \usepackage{amssymb}
 \usepackage{threeparttable}
-
+\usepackage{amssymb}
 
 \usepackage{listings}
 \usepackage{xcolor}
@@ -67,6 +67,15 @@
 
 
 
+\makeatletter 
+\@addtoreset{equation}{section}
+%\@addtoreset{theorem}{section} 
+\@addtoreset{definition}{section} 
+\makeatother 
+\renewcommand{\theequation}{\arabic{section}.\arabic{equation}}
+\newtheorem{definition}{Definition \arabic{section}.\arabic{definition}} 
+\newtheorem{theorem}{Theorem}[section]
+
 %layout
 \usepackage{calc} 
 \setlength\textwidth{7in} 
@@ -75,87 +84,70 @@
 \setlength\topmargin{(\paperheight-\textheight -\headheight-\headsep-\footskip)/2 - 1.5in}
 
 
-\title{Summary for Nonlinear Optimization}
+\title{Matrix Manual}
 \author{Linlin Ge}
 \date{}
 \CTEXoptions[today=old]
 \begin{document}
 \maketitle
 
-\section{Introduction}
-
-
-
-
-
+\section{Symbols}
 \begin{table}[H]
-\centering
-\caption{Optimization Method}
-\label{table1}
-\begin{tabular}{|c|c|c|}
-\hline  % 表格的横线
-\multicolumn{1}{|c|}{方法分类}& Solved Problems  & Methods\\
-\hline  % 表格的横线
-\multirow{4}{*}{Local Deterministic}
- &  &gradient descent and derivative   \\
-\cline{2-3}  % 表格的横线
-~& & Newton, Gaussian-newton, LM \\
-\cline{2-3}  % 表格的横线
-~& & Quasi-Newton \\
-\cline{2-3}  % 表格的横线
-~& & Expectation Maximization \\
-
-
-\hline  % 表格的横线
-\multirow{4}{*}{Global Deterministic}
- &Integer Programming Problem  &Branch and Bound \& Tree Search   \\
-\cline{2-3}  % 表格的横线
-~& & Graduated Assignment \\
-\cline{2-3}  % 表格的横线
-~& & Mean Field Annealing \\
-\cline{2-3}  % 表格的横线
-~& & Game Theoretical Framework \\
-\cline{2-3}  % 表格的横线
-~& & Spectral Method \\
-
-\hline  % 表格的横线
-\multirow{5}{*}{Stochastic}
- & & Genetic Algorithm \& Simulated Annealing   \\
-\cline{2-3}  % 表格的横线
-~& & Particle Filtering \\
-\cline{2-3}  % 表格的横线
-~& & Hough Transform \\
-\cline{2-3}  % 表格的横线
-~& &RANSAC \\
-\cline{2-3}  % 表格的横线
-~& &Belief Propagation \\
-
-\hline  % 表格的横线
-\multirow{3}{*}{Constrained Search}
- & & Prune and Search   \\
-\cline{2-3}  % 表格的横线
-~& & Geometric Hashing \\
-\cline{2-3}  % 表格的横线
-~& & Embedding Techniques \\
-
+\begin{center}
+\begin{tabular}{|c|c|}
+\hline
+Symbols & Descriptions \\
+\hline
+$\equiv$ & is equivalent to \\
+\hline
+$:=$ & \multirow{2}{*}{ equal by definition}\\
+\cline{1-1}
+$\triangleq$ & ~\\
+\hline
+$\approx$ & is approximately\\
+\hline
+$\sim$ & similar or weak approximately\\
 \hline
 \end{tabular}
+\end{center}
 \end{table}
 
+\section{Norm on Vector Space}
+\paragraph{Definition 2.1.} The size of a vector $v=(a_1,\cdots,a_n)^T$ is
+\begin{equation}
+\Vert v \Vert = \Vert v \Vert_2 =\sqrt[]{a_1^2+ \cdots + a_n^2}
+\end{equation}
 
+\section{Matrix Norms}
+\paragraph{Definition 3.1.} 1-norm is maximal column sum
+\begin{equation}
+\Vert A \Vert_1= \max_{j=1}^n \sum_{i=1}^n \vert a_{ij} \vert
+\end{equation}
 
+\paragraph{Definition 3.2.} $\infty$-norm is maximal row sum
+\begin{equation}
+\Vert A \Vert_1 = \max_{i=1}^n \sum_{j=1}^n \vert a_{ij} \vert
+\end{equation}
 
+\paragraph{Definition 3.3.} 2-norm 
+\begin{equation}
+\Vert A \Vert_2 = \max_{i=1}^n \sqrt[]{\lambda_i (A^TA)}
+\end{equation}
 
-$$L=
-\left[
-\begin{array}{cccc}
-2 & -1 & -1 & 0 \\
--1 & 3 & -1 & -1 \\
--1 & -1 & 3 & -1 \\
-0 & -1 & -1 & 2
-\end{array}
-\right]
-$$
+\begin{theorem}
+For $A,B \in M_n(R)$
+\end{theorem}
+\begin{itemize}
+\item[(I)]{$\Vert A \Vert \geq 0 $, with equality if and only if $A=O$}
+\item[(II)]{$\Vert A+B\Vert \leq \Vert A \Vert + \Vert B \Vert$}
+\item[(III)]{$\Vert cA\Vert = \vert c \vert \Vert A \Vert$}
+\item[(IV)]{$\Vert AB \Vert \leq \Vert A \Vert \Vert B \Vert$}
+\item[(V)]{$\Vert A \Vert = \Vert A^T \Vert$}
+\item[(VI)]{$\Vert AA^T\Vert = \Vert A^TA \Vert= \Vert A \Vert^2$. Thus $\Vert A \Vert = \sqrt{\Vert AA^T \Vert} = \sqrt{\Vert A^TA \Vert}$}
+\item[(VII)]{$\vert (Av,w) \vert \leq \Vert A \Vert \Vert v \Vert \Vert w \Vert$}
+\item[(VIII)]{$\Vert A \Vert_{sup} \leq \Vert A \Vert \leq n \sqrt{n} \Vert A \Vert_{sup} $}
+\end{itemize}
+
 
 \begin{thebibliography}{1}
 
