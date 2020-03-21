@@ -11,6 +11,7 @@
 \newcommand{\upcite}[1]{\textsuperscript{\textsuperscript{\cite{#1}}}}
 
 
+
 \usepackage{bbding}
 \usepackage{pifont}
 \usepackage{wasysym}
@@ -74,45 +75,36 @@
 \setlength\topmargin{(\paperheight-\textheight -\headheight-\headsep-\footskip)/2 - 1.5in}
 
 
-\title{Note for Probability Theory and Statistics}
+\title{Summary for Numerical Analysis}
 \author{Linlin Ge}
+\date{}
 \CTEXoptions[today=old]
 \begin{document}
 \maketitle
 
-\section{Distribution}
-\paragraph{Multivariate normal distribution} \mbox{}
-$$  f_{\bm{x}}(x_1,\cdots,x_k)=\frac{ e^{-\frac{\displaystyle (\bm{x} -\bm{\mu})^T \bm{C}^{-1}(\bm{x}-\bm{\mu})}{2}}}{\sqrt[]{(2 \pi)^k \vert \bm{C} \vert}}$$
-Where, 
-\begin{table}[H]
-\begin{tabular}{cl}
-$\bm{C}$ & The symmetric covariance matrix. \\
-$\bm{x}$ & A real k-dimensional column vector.\\
-\end{tabular}
-\end{table}
-
-
-
-\section{Distance}
-\subsection{Distance of Random Variables (Same Distribution, Covariance Matrix=$\bm{C}$)}
-\paragraph{Mahalanobis Distance} \mbox{}
+\section{Solving for Nonlinear Equation Root $f(x)=0$}
+\subsection{Newton's Method}
+\paragraph{Advantages:}
 \begin{itemize}
-\item[(1)] Distance of vector $\bm{x}$ and set:
-$$D_M(\bm{x})=\sqrt[]{(\bm{x}-\bm{\mu})^{T}\bm{C}^{-1}(\bm{x}-\bm{\mu})}$$
-If $\bm{x}$ is a k-dimensional Gaussian random vector with mean vector $\bm{\mu}$ and rank $k$ covariance matrix $\bm{C}$, then the Mahalanobis distance $D^2_M(\bm{x})$ follows a $\chi^2$-distribution with $d$ degrees of freedom.
-
-\item[(2)] Distance of two vectors $\bm{x}$ and $\bm{y}$:
-$$d(\bm{x},\bm{y})=\sqrt[]{(\bm{x}-\bm{\mu})^{T}\bm{C}^{-1}(\bm{x}-\bm{\mu})}$$
-
+\item{Easy to implement}
+\item{Fast convergence}
 \end{itemize}
+\paragraph{Shortcomings:}
+\begin{itemize}
+\item{Large amount of computation, such as $f(x), f^{'}(x)$}
+\item{Sensitive to initial value}
+\end{itemize}
+\paragraph{Iterative formula:}
+$$x_{n+1}=x_n-\frac{f(x)}{f^{'}(x)}$$
 
-\section{Error Function}
-\subsection{Approximation}
-$$erf(x) \approx 1-\frac{1}{\left(1+a_1x+a_2x^2+a_3x^3+a_4x^4\right)^4}  \hspace{10pt} x \geq 0$$
-Where $a_1 = 0.278393, a_2 = 0.230389, a_3 = 0.000972, a_4 = 0.078108$, and its maximum error: $5×10^{-4}$
+
+\subsection{Bisection Method}
+
+
+
 
 \begin{thebibliography}{1}
-
+\bibitem{KDE01}
 
 
 \end{thebibliography}
